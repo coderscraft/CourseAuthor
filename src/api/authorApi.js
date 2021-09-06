@@ -1,6 +1,14 @@
 import { handleResponse, handleError } from "./apiUtils";
 const baseUrl = process.env.REACT_APP_API_URL + "/authors.json";
 
+const configUrl = process.env.REACT_APP_API_URL + "/config.json";
+
+export function getConfig() {
+  return fetch(configUrl)
+    .then(handleResponse)
+    .catch(handleError);
+}
+
 export function getAuthors() {
   return fetch(baseUrl)
     .then(handleResponse)
